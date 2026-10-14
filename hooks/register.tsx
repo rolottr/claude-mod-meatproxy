@@ -256,7 +256,6 @@ export const register: Register = on => {
       return (
         <Box flexDirection="column">
           <Text dimColor>No drafts yet. Ask Claude to draft a reply, and it shows here.</Text>
-          <Button key="close" hotkey="x" role="dismiss" label="Close" onPress={() => $.ui.close({ id: PANE })} />
         </Box>
       )
     }
@@ -267,28 +266,33 @@ export const register: Register = on => {
     }
     const go = (step: number) => () => update($, shown, () => Math.min(list.length - 1, Math.max(0, index + step)))
 
+    // Key hints, not boxes: each button draws its hotkey in the accent
+    // color, then its label ("r: Rich text"). The pane's ✕ and Esc
+    // close it, so the toolbar has no Close button.
     return (
       <Box flexDirection="column" gap={1}>
         <Box flexDirection="column">
-          <Box flexDirection="row" flexWrap="wrap" columnGap={1}>
-            <Button key="rich" hotkey="r" variant="primary" label="Copy rich text" onPress={press('rich')} />
-            <Button key="md" hotkey="m" label="Markdown" onPress={press('md')} />
-            <Button key="plain" hotkey="p" label="Plain" onPress={press('plain')} />
-            {draft.subject !== undefined && <Button key="subject" hotkey="s" label="Subject" onPress={press('subject')} />}
-            <Button key="close" hotkey="x" role="dismiss" label="Close" onPress={() => $.ui.close({ id: PANE })} />
+          <Box flexDirection="row" flexWrap="wrap" columnGap={2}>
+            <Text dimColor>Copy</Text>
+            <Button key="rich" hotkey="r" plain label="Rich text" onPress={press('rich')} />
+            <Button key="md" hotkey="m" plain label="Markdown" onPress={press('md')} />
+            <Button key="plain" hotkey="p" plain label="Plain" onPress={press('plain')} />
+            {draft.subject !== undefined && <Button key="subject" hotkey="s" plain label="Subject" onPress={press('subject')} />}
           </Box>
-          <Box flexDirection="row" columnGap={1}>
-            {list.length > 1 && <Button key="prev" hotkey="k" label="‹ Older" onPress={go(-1)} />}
-            {list.length > 1 && <Button key="next" hotkey="j" label="Newer ›" onPress={go(1)} />}
+          <Box flexDirection="row" flexWrap="wrap" columnGap={2}>
+            {list.length > 1 && <Button key="prev" hotkey="k" plain dimColor label="‹ Older" onPress={go(-1)} />}
+            {list.length > 1 && <Button key="next" hotkey="j" plain dimColor label="Newer ›" onPress={go(1)} />}
             <Text dimColor>
               Draft {index + 1} of {list.length}
             </Text>
             {line !== null && (
               <Text color={line.startsWith('Copied') ? 'green' : 'red'}>
+                {line.startsWith('Copied') ? '✓ ' : '✗ '}
                 {line}
               </Text>
             )}
           </Box>
+          <Text dimColor>{'─'.repeat(Math.max(1, e.props.bodyColumns))}</Text>
         </Box>
         {(draft.to !== undefined || draft.subject !== undefined) && (
           <Box flexDirection="column">

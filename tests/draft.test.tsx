@@ -134,6 +134,8 @@ describe('the pane', () => {
       expect((await ui.find({ key: 'body' }))?.text).toContain('Los pagos de **Lucía**')
       expect(await ui.find({ text: 'RE: Facturación de octubre' })).toBeDefined()
       expect(await ui.find({ text: 'Begoña' })).toBeDefined()
+      expect(await ui.find({ key: 'rich' })).toBeDefined()
+      expect(await ui.find({ key: 'close' })).toBeUndefined()
 
       await ui.press({ key: 'md' })
       expect(seen.copies.at(-1)).toBe(BODY)

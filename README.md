@@ -7,14 +7,15 @@ Ask Claude Code to draft an email, a reply, or a Slack message. The draft opens 
 No more "put the email in an md file in /tmp", then `cat`, then select, then copy.
 
 ```text
- ❯ Draft a reply to Begoña: nothing is missing,         │                                                              ✕
-   the payments are in the transfers of 13 and 14 Oct.  │ [ Copy rich text ] [ Markdown ] [ Plain ] [ Subject ] [ Close ]
-                                                        │ [ ‹ Older ] [ Newer › ] Draft 2 of 2  Copied rich text.
- ⏺ meatproxy - draft (MCP)(to: "Begoña",                │
-     subject: "RE: Facturación de octubre",             │ To: Begoña
-     body: "12 lines, shown in the Draft pane")         │ Subject: RE: Facturación de octubre
-                                                        │
- ⏺ The draft is in the Draft pane.                      │ Hola Begoña:
+ ❯ Draft a reply to Begoña: nothing is missing,         │                                                    ✕
+   the payments are in the transfers of 13 and 14 Oct.  │ Copy  r: Rich text  m: Markdown  p: Plain  s: Subject
+                                                        │ k: ‹ Older  j: Newer ›  Draft 2 of 2  ✓ Copied rich text.
+ ⏺ meatproxy - draft (MCP)(to: "Begoña",                │ ─────────────────────────────────────────────────────
+     subject: "RE: Facturación de octubre",             │
+     body: "12 lines, shown in the Draft pane")         │ To: Begoña
+                                                        │ Subject: RE: Facturación de octubre
+ ⏺ The draft is in the Draft pane.                      │
+                                                        │ Hola Begoña:
                                                         │
                                                         │ No falta nada. Los pagos de Lucía están en las
                                                         │ transferencias del 13 y del 14 de octubre.
@@ -69,16 +70,16 @@ Ask for a draft as you always do. You do not need a command or a keyword:
 
 Claude puts the draft in the pane and does not repeat it in the chat. When you ask for a change ("make it shorter", "add a total row"), the new version opens as the next draft, and the older versions stay in the history.
 
-| In the pane | Key | What it does |
-| --- | --- | --- |
-| **Copy rich text** | `r` | Copies the draft with its format: bold, links, lists, and tables. |
-| **Markdown** | `m` | Copies the markdown source. |
-| **Plain** | `p` | Copies plain text, with no markdown signs. |
-| **Subject** | `s` | Copies the subject line (emails only). |
-| **‹ Older** / **Newer ›** | `k` / `j` | Steps through the drafts. |
-| **Close** or ✕ | `x` / `Esc` | Closes the pane. |
+| In the pane | What it does |
+| --- | --- |
+| `r` Rich text | Copies the draft with its format: bold, links, lists, and tables. |
+| `m` Markdown | Copies the markdown source. |
+| `p` Plain | Copies plain text, with no markdown signs. |
+| `s` Subject | Copies the subject line (emails only). |
+| `k` ‹ Older / `j` Newer › | Steps through the drafts. |
+| ✕ or `Esc` | Closes the pane. |
 
-Click a button with the mouse, or run `/draft` to give the pane the keyboard and use the keys.
+Click an item with the mouse, or run `/draft` to give the pane the keyboard and press the keys.
 
 | Command | What it does |
 | --- | --- |
