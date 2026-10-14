@@ -1,0 +1,11 @@
+{
+  "name": "meatproxy",
+  "version": "0.1.0",
+  "description": "Drafts of emails, replies and messages open in a side pane, ready to copy as rich text, markdown or plain text.",
+  "author": { "name": "rolottr", "url": "https://github.com/rolottr" },
+  "homepage": "https://github.com/rolottr/claude-mod-meatproxy",
+  "repository": "https://github.com/rolottr/claude-mod-meatproxy",
+  "license": "MIT",
+  "keywords": ["mod", "email", "draft", "clipboard", "reply"],
+  "types": "./types/index.d.ts"
+}

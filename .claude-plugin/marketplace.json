@@ -1,0 +1,15 @@
+{
+  "name": "meatproxy",
+  "owner": {
+    "name": "rolottr",
+    "url": "https://github.com/rolottr"
+  },
+  "description": "Drafts of emails, replies and messages open in a side pane, ready to copy.",
+  "plugins": [
+    {
+      "name": "meatproxy",
+      "source": "./",
+      "description": "Drafts of emails, replies and messages open in a side pane, ready to copy as rich text, markdown or plain text."
+    }
+  ]
+}
