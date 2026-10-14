@@ -1,4 +1,4 @@
-# meatproxy
+# CLAUDE mod: meatproxy
 
 **Claude writes the email. You are the meat proxy that sends it. This mod makes that part one key.**
 
